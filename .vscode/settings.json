@@ -2,6 +2,8 @@
     "chat.tools.terminal.autoApprove": {
         "git checkout": true,
         "git push": true,
-        "mkdir": true
+        "mkdir": true,
+        "pip": true
     }
+    
 }

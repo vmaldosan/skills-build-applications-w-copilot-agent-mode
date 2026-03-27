@@ -22,16 +22,17 @@ from .views import UserViewSet, TeamViewSet, ActivityViewSet, WorkoutViewSet, Le
 
 codespace_name = os.environ.get('CODESPACE_NAME')
 codespace_host = f"{codespace_name}-8000.app.github.dev" if codespace_name else None
+
+# Instantiate the router
+router = DefaultRouter()
 router.register(r'users', UserViewSet, basename='user')
 router.register(r'teams', TeamViewSet, basename='team')
 router.register(r'activities', ActivityViewSet, basename='activity')
 router.register(r'workouts', WorkoutViewSet, basename='workout')
 router.register(r'leaderboard', LeaderboardViewSet, basename='leaderboard')
 
-
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework.reverse import reverse
 
 @api_view(['GET'])
 def api_root(request, format=None):
